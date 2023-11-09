@@ -1,17 +1,27 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MainApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MainApp extends StatelessWidget {
+  const MainApp({Key? key}) : super(key: key);
 
   @override
-  State<MyApp> createState() => HomePageState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MyhomePage(),
+    );
+  }
 }
 
-class
+class MyhomePage extends StatefulWidget {
+  @override
+  State<MyhomePage> createState() => _MyhomePageState();
+}
+
+class _MyhomePageState extends State<MyhomePage> {
+  DateTime selectDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -32,19 +42,18 @@ class
                         child: Container(
                           color: Colors.red,
                           child: const Center(
-                              child: Text(
-                            "2",
-                            style: TextStyle(color: Colors.white, fontSize: 30),
-                          )),
+                            child: Icon(Icons.location_on,
+                                size: 100, color: Colors.white),
+                          ),
                         ),
                       ),
                       Expanded(
                         child: Container(
                           color: Colors.yellow,
-                          child: const Center(
-                              child: Text("3",
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 30))),
+                          child: Center(
+                              child: Image.network(
+                                  'https://buatlogoonline.com/wp-content/uploads/2022/10/Logo-Garuda-Indonesia.png',
+                                  fit: BoxFit.cover)),
                         ),
                       )
                     ],
@@ -69,3 +78,4 @@ class
           ),
         ));
   }
+}
