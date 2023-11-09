@@ -64,14 +64,49 @@ class _MyhomePageState extends State<MyhomePage> {
                   color: Colors.orange,
                   child: const Center(
                       child: Text("Pemesanan Tiket Travel",
-                          style: TextStyle(color: Colors.white, fontSize: 30))),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold))),
                 )),
                 Expanded(
                     child: Container(
+                  padding: const EdgeInsets.all(50),
                   color: Colors.brown,
-                  child: const Center(
-                      child: Text("5",
-                          style: TextStyle(color: Colors.white, fontSize: 30))),
+                  height: double.infinity,
+                  width: double.infinity,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(selectDate.toString(),
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white)),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      OutlinedButton(
+                        onPressed: () {
+                          showDatePicker(
+                                  context: context,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime(2009),
+                                  lastDate: DateTime(2025))
+                              .then((value) {
+                            setState(() {
+                              selectDate = value!;
+                            });
+                          });
+                        },
+                        child: const Text(
+                          "Pilih Tanggal",
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                      )
+                    ],
+                  ),
                 )),
               ],
             ),
