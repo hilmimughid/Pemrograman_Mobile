@@ -49,10 +49,10 @@ class _MyhomePageState extends State<MyhomePage> {
                       ),
                       Expanded(
                         child: Container(
-                          color: Colors.yellow,
+                          color: Colors.white,
                           child: Center(
                               child: Image.network(
-                                  'https://buatlogoonline.com/wp-content/uploads/2022/10/Logo-Garuda-Indonesia.png',
+                                  'https://i.pinimg.com/736x/51/98/c9/5198c9ecd826b7b65e69ce201bc21550.jpg',
                                   fit: BoxFit.cover)),
                         ),
                       )
@@ -63,7 +63,7 @@ class _MyhomePageState extends State<MyhomePage> {
                     child: Container(
                   color: Colors.orange,
                   child: const Center(
-                      child: Text("4",
+                      child: Text("Pemesanan Tiket Travel",
                           style: TextStyle(color: Colors.white, fontSize: 30))),
                 )),
                 Expanded(
