@@ -8,6 +8,12 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
+  State<MyApp> createState() => HomePageState();
+}
+
+class
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Hilmi Mughid 2141720081',
@@ -63,4 +69,3 @@ class MyApp extends StatelessWidget {
           ),
         ));
   }
-}
