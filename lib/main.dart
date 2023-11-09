@@ -34,11 +34,11 @@ class MyApp extends StatelessWidget {
                       ),
                       Expanded(
                         child: Container(
-                          color: Colors.yellow,
+                          color: Colors.white,
                           child: const Center(
                               child: Text("3",
                                   style: TextStyle(
-                                      color: Colors.white, fontSize: 30))),
+                                      color: Colors.black, fontSize: 30))),
                         ),
                       )
                     ],
