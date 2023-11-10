@@ -81,7 +81,7 @@ class _MyhomePageState extends State<MyhomePage> {
                     children: [
                       Text(selectDate.toString(),
                           style: const TextStyle(
-                              fontSize: 20,
+                              fontSize: 18,
                               fontWeight: FontWeight.bold,
                               color: Colors.white)),
                       const SizedBox(
