@@ -12,54 +12,65 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepOrange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Konversi Suhu"),
-        ),
-        body: Container(
-          margin: EdgeInsets.all(50),
-          child: Column(children: [
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: "Celcius",
-                hintText: "Masukkan Suhu Dalam Celcius",
-              ),
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  String dropdownValue = 'Reamur';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Konversi Suhu"),
+      ),
+      body: Container(
+        margin: EdgeInsets.all(50),
+        child: Column(children: [
+          TextFormField(
+            decoration: InputDecoration(
+              labelText: "Celcius",
+              hintText: "Masukkan Suhu Dalam Celcius",
             ),
-            SizedBox(
-              height: 10,
-            ),
-            DropdownButton(
-              isExpanded: true,
-              value: "Reamur",
-              items: [
-                DropdownMenuItem(
-                  child: Text("Reamur"),
-                  value: "Reamur",
-                ),
-                DropdownMenuItem(
-                  child: Text("Kelvin"),
-                  value: "Kelvin",
-                ),
-                DropdownMenuItem(
-                  child: Text("Fahrenheit"),
-                  value: "Fahrenheit",
-                ),
-              ],
-              onChanged: (value) {},
-            ),
-            Text("Hasil"),
-            Text("365"),
-            Row(
-              children: [
-                Expanded(
-                    child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text("Konversi Suhu"),
-                ))
-              ],
-            )
-          ]),
-        ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          DropdownButton<String>(
+            isExpanded: true,
+            value: dropdownValue,
+            items: <String>['Reamur', 'Kelvin', 'Fahrenheit']
+                .map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+            onChanged: (String? newValue) {
+              setState(() {
+                dropdownValue = newValue!;
+              });
+            },
+          ),
+          Text("Hasil"),
+          Text("365"),
+          Row(
+            children: [
+              Expanded(
+                  child: ElevatedButton(
+                onPressed: () {},
+                child: Text("Konversi Suhu"),
+              ))
+            ],
+          )
+        ]),
       ),
     );
   }
