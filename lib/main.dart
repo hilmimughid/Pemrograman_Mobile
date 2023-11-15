@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  final List<String> data = ["Hilmi", "Mughid", "Fahmi", "Amar", "Faiz"];
+  final List<String> data = ["Hilmi", "Mughid", "Fahmi", "Amar", "Fais"];
 
   @override
   Widget build(BuildContext context) {
