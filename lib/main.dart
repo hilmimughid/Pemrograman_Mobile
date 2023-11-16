@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
       home: MyHomePage(),
     );
   }
@@ -25,50 +19,57 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String dropdownValue = 'Reamur';
+  String? dropdownValue = 'Reamur';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Konversi Suhu"),
+        title: const Text("Konverter Suhu"),
       ),
       body: Container(
-        margin: EdgeInsets.all(50),
+        margin: const EdgeInsets.all(50),
         child: Column(children: [
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: "Celcius",
               hintText: "Masukkan Suhu Dalam Celcius",
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           DropdownButton<String>(
             isExpanded: true,
             value: dropdownValue,
-            items: <String>['Reamur', 'Kelvin', 'Fahrenheit']
-                .map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
+            items: const [
+              DropdownMenuItem(
+                child: Text("Reamur"),
+                value: "Reamur",
+              ),
+              DropdownMenuItem(
+                child: Text("Kelvin"),
+                value: "Kelvin",
+              ),
+              DropdownMenuItem(
+                child: Text("Fahrenheit"),
+                value: "Fahrenheit",
+              ),
+            ],
             onChanged: (String? newValue) {
               setState(() {
-                dropdownValue = newValue!;
+                dropdownValue = newValue;
               });
             },
           ),
-          Text("Hasil"),
-          Text("365"),
+          const Text("Hasil"),
+          const Text("365"),
           Row(
             children: [
               Expanded(
                   child: ElevatedButton(
                 onPressed: () {},
-                child: Text("Konversi Suhu"),
+                child: const Text("Konversi Suhu"),
               ))
             ],
           )
